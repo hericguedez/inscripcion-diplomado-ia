@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inscripción · Diplomado en Inteligencia Artificial</title>
+<meta name="description" content="Formulario de inscripción del Diplomado en Inteligencia Artificial: Análisis, Desarrollo y Automatización. Facultad de Ingeniería, Universidad del Zulia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Saira:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;}
+body{background:#EEF3F7;font-family:Montserrat,sans-serif;color:#141E27;}
+.site-header{background:#00304F;color:#fff;padding:22px 16px;text-align:center;}
+.site-header p{margin:0;}
+.site-kicker{font-family:Saira,sans-serif;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#E3B85A;}
+.site-title{font-family:Saira,sans-serif;font-size:22px;font-weight:700;margin-top:4px !important;line-height:1.25;}
+.site-sub{font-size:13px;color:#C9D8E4;margin-top:4px !important;}
+.site-main{padding:32px 16px 48px;}
+.site-footer{text-align:center;font-size:12px;color:#5B6B78;padding:0 16px 32px;}
+@media (max-width:680px){.site-title{font-size:18px;}.site-main{padding:20px 12px 36px;}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <p class="site-kicker">Facultad de Ingeniería · Universidad del Zulia</p>
+  <p class="site-title">Diplomado en Inteligencia Artificial</p>
+  <p class="site-sub">Análisis, Desarrollo y Automatización</p>
+</header>
+<main class="site-main">
+<style>
+.insc-wrap{max-width:760px;margin:0 auto;padding:36px;background:#fff;border-radius:20px;font-family:Montserrat,sans-serif;box-shadow:0 1px 3px rgba(20,36,52,0.10);}
+.insc-wrap *{box-sizing:border-box;}
+.insc-wrap h3{color:#00304F;font-size:22px;margin:0 0 6px;font-family:Saira,sans-serif;}
+.insc-wrap p.insc-lede{font-size:13.5px;color:#5B6B78;margin:0 0 26px;}
+.insc-section-title{font-family:Saira,sans-serif;font-size:12.5px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#C9962B;margin:26px 0 14px;}
+.insc-section-title:first-of-type{margin-top:0;}
+.insc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px;}
+.insc-full{grid-column:1 / -1;}
+.insc-field label{display:block;font-size:12.5px;font-weight:600;color:#33424E;margin-bottom:6px;}
+.insc-field input[type="text"],
+.insc-field input[type="email"],
+.insc-field input[type="tel"],
+.insc-field input[type="date"],
+.insc-field select{
+  width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid #D7E3EB;
+  font-size:14.5px;font-family:Montserrat,sans-serif;background:#ffffff;color:#141E27;
+}
+.insc-field input[type="file"]{
+  width:100%;padding:10px 12px;border-radius:10px;border:1.5px dashed #D7E3EB;
+  font-size:13px;font-family:Montserrat,sans-serif;background:#F5F8FA;color:#33424E;
+}
+.insc-note{font-size:11.5px;color:#5B6B78;margin:6px 0 0;line-height:1.4;}
+.insc-radio-group{display:flex;flex-wrap:wrap;gap:18px;padding:4px 0;}
+.insc-radio-option{display:flex;align-items:center;gap:7px;font-size:14px;color:#33424E;cursor:pointer;}
+.insc-radio-option input{accent-color:#0065A6;width:16px;height:16px;cursor:pointer;}
+.insc-conditional{display:none;}
+.insc-conditional.insc-visible{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px;margin-top:14px;}
+.insc-conditional.insc-visible.insc-single{display:block;}
+.insc-checkbox-row{display:flex;align-items:flex-start;gap:10px;margin:28px 0 20px;}
+.insc-checkbox-row input{margin-top:3px;width:16px;height:16px;accent-color:#0065A6;cursor:pointer;flex-shrink:0;}
+.insc-checkbox-row label{font-size:13px;color:#33424E;line-height:1.5;}
+.insc-checkbox-row a{color:#0065A6;text-decoration:underline;}
+.insc-submit{width:100%;padding:15px 26px;border-radius:999px;background:#C9962B;color:#fff;font-weight:600;font-size:15px;border:none;cursor:pointer;font-family:Montserrat,sans-serif;}
+.insc-submit:disabled{opacity:0.6;cursor:default;}
+.insc-error{color:#B3261E;font-size:13px;margin:12px 0 0;text-align:center;}
+.insc-validation{display:none;background:#FDEEEE;border:1px solid #F3B8B8;border-radius:10px;padding:14px 16px;margin:14px 0 0;}
+.insc-validation.insc-visible{display:block;}
+.insc-validation p{margin:0 0 6px;font-size:13px;font-weight:600;color:#B3261E;}
+.insc-validation ul{margin:0;padding-left:18px;}
+.insc-validation li{font-size:12.5px;color:#B3261E;line-height:1.6;}
+.insc-confirm{display:none;text-align:center;padding:30px 10px;}
+.insc-confirm.insc-visible{display:block;}
+.insc-confirm .insc-icon{width:56px;height:56px;border-radius:50%;background:#E1EFF8;color:#0065A6;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:26px;}
+.insc-phone-row{display:flex;gap:8px;}
+.insc-phone-row select{flex:0 0 108px;width:108px;padding:12px 6px;border-radius:10px;border:1.5px solid #D7E3EB;font-size:13px;font-family:Montserrat,sans-serif;background:#fff;color:#141E27;}
+.insc-phone-row input{flex:1;min-width:0;}
+@media (max-width:680px){
+  .insc-grid, .insc-conditional.insc-visible{grid-template-columns:1fr;}
+  .insc-wrap{padding:24px 18px;}
+}
+
+/* ===== Información de pago y contacto (debajo del formulario) ===== */
+.insc-info-wrap{max-width:760px;margin:28px auto 0;padding:36px;background:#fff;border-radius:20px;font-family:Montserrat,sans-serif;box-shadow:0 1px 3px rgba(20,36,52,0.10);}
+.insc-info-wrap *{box-sizing:border-box;}
+.insc-info-title{color:#00304F;font-size:19px;margin:0 0 8px;font-family:Saira,sans-serif;position:relative;padding-bottom:10px;}
+.insc-info-title:after{content:"";position:absolute;left:0;bottom:0;width:46px;height:3px;background:#C9962B;}
+.insc-info-lede{font-size:13.5px;color:#5B6B78;margin:14px 0 22px;line-height:1.5;}
+.insc-price-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:22px;}
+.insc-price-card{border:1.5px solid #D7E3EB;border-radius:16px;padding:20px;position:relative;background:#F7FAFC;}
+.insc-price-badge{display:inline-block;background:#FBF3E3;color:#C9962B;font-size:10.5px;font-weight:700;letter-spacing:0.04em;padding:4px 10px;border-radius:999px;margin-bottom:12px;}
+.insc-price-country{font-size:11px;font-weight:700;letter-spacing:0.08em;color:#5B6B78;margin:0 0 2px;}
+.insc-price-label{font-size:15px;font-weight:600;color:#00304F;margin:0 0 10px;font-family:Saira,sans-serif;}
+.insc-price-amount{font-size:26px;font-weight:700;color:#00304F;margin:0 0 8px;font-family:Saira,sans-serif;}
+.insc-price-old{font-size:15px;font-weight:500;color:#9CA9B3;text-decoration:line-through;margin-left:4px;}
+.insc-price-unit{display:block;font-size:11.5px;font-weight:400;color:#5B6B78;margin-top:2px;}
+.insc-price-financing{background:#EAF3FA;border-radius:8px;padding:8px 10px;font-size:11.5px;color:#33424E;margin-bottom:14px;}
+.insc-price-sep{border:none;border-top:1px solid #E1E8ED;margin:14px 0;}
+.insc-price-sub{font-size:12px;color:#33424E;margin:0 0 8px;}
+.insc-price-list{margin:0;padding-left:16px;}
+.insc-price-list li{font-size:12px;color:#33424E;line-height:1.65;}
+.insc-ve-note{display:flex;gap:14px;align-items:flex-start;background:#FBF3E3;border-left:4.5px solid #C9962B;border-radius:10px;padding:16px 18px;margin-bottom:18px;}
+.insc-ve-icon{font-size:22px;line-height:1;flex-shrink:0;}
+.insc-ve-title{font-weight:700;color:#00304F;font-size:14px;margin:0 0 4px;font-family:Saira,sans-serif;}
+.insc-ve-text{font-size:12.5px;color:#33424E;margin:0;line-height:1.5;}
+.insc-contact-note{text-align:center;font-size:13.5px;color:#33424E;margin:0;}
+.insc-contact-note a{color:#0065A6;font-weight:600;text-decoration:none;}
+@media (max-width:680px){
+  .insc-price-grid{grid-template-columns:1fr;}
+  .insc-info-wrap{padding:24px 18px;margin-top:20px;}
+}
+</style>
+
+<div class="insc-wrap">
+
+  <div id="inscFormState">
+    <h3>Formulario de Inscripción</h3>
+    <p class="insc-lede">Completa tus datos personales, académicos y adjunta tus documentos. Todos los campos marcados son obligatorios.</p>
+
+    <form id="inscForm" novalidate>
+
+      <p class="insc-section-title">Datos personales</p>
+      <div class="insc-grid">
+        <div class="insc-field"><label>Nombres</label><input type="text" name="nombres" required></div>
+        <div class="insc-field"><label>Apellidos</label><input type="text" name="apellidos" required></div>
+
+        <div class="insc-field">
+          <label>Género</label>
+          <select name="genero" required>
+            <option value="" disabled selected>Selecciona</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+        <div class="insc-field"><label>Fecha de nacimiento</label><input type="date" name="fecha_nacimiento" required></div>
+
+        <div class="insc-field"><label>Correo electrónico</label><input type="email" name="email" required></div>
+        <div class="insc-field">
+          <label>Teléfono</label>
+          <div class="insc-phone-row">
+            <select name="telefono_code" class="insc-phone-code" required></select>
+            <input type="tel" name="telefono" placeholder="4141234567" required>
+          </div>
+        </div>
+
+        <div class="insc-field"><label>País de origen</label><select name="pais_origen" class="insc-country" required></select></div>
+        <div class="insc-field"><label>País de residencia</label><select name="pais_residencia" class="insc-country" required></select></div>
+
+        <div class="insc-field">
+          <label>Documento de identidad (origen)</label>
+          <input type="text" name="doc_origen" required>
+        </div>
+        <div class="insc-field" id="campoDocResidencia">
+          <label>Documento de identidad (residencia)</label>
+          <input type="text" name="doc_residencia" required>
+        </div>
+        <p class="insc-note insc-full" style="margin-top:-6px;">Se aceptan documentos vencidos.</p>
+      </div>
+
+      <p class="insc-section-title">Situación académica y ocupacional</p>
+      <div class="insc-field insc-full" style="margin-bottom:6px;">
+        <label>¿Eres estudiante o profesional?</label>
+        <div class="insc-radio-group">
+          <label class="insc-radio-option"><input type="radio" name="estatus" value="Estudiante" required> Estudiante</label>
+          <label class="insc-radio-option"><input type="radio" name="estatus" value="Profesional" required> Profesional</label>
+        </div>
+      </div>
+
+      <div class="insc-conditional" id="camposEstudiante">
+        <div class="insc-field"><label>Carrera</label><input type="text" name="carrera"></div>
+        <div class="insc-field"><label>Semestre / Año</label><input type="text" name="semestre_anio"></div>
+      </div>
+
+      <div class="insc-conditional insc-single" id="camposProfesional">
+        <div class="insc-field"><label>Profesión</label><input type="text" name="profesion"></div>
+      </div>
+
+      <div class="insc-field insc-full" style="margin-top:16px;">
+        <label>Ocupación actual</label>
+        <input type="text" name="ocupacion_actual" required>
+      </div>
+
+      <div class="insc-field insc-full" style="margin-top:16px;">
+        <label>Horario elegido</label>
+        <select name="horario_elegido" required>
+          <option value="" disabled selected>Selecciona un horario</option>
+          <option value="Lunes y miércoles, 6:00 pm - 8:30 pm">Lunes y miércoles, 6:00 pm - 8:30 pm</option>
+          <option value="Martes y jueves, 6:00 pm - 8:30 pm">Martes y jueves, 6:00 pm - 8:30 pm</option>
+          <option value="Sábados, 8:00 am - 1:00 pm">Sábados, 8:00 am - 1:00 pm</option>
+        </select>
+      </div>
+
+      <div class="insc-field insc-full" style="margin-top:16px;margin-bottom:6px;">
+        <label>¿Presentas alguna discapacidad?</label>
+        <div class="insc-radio-group">
+          <label class="insc-radio-option"><input type="radio" name="discapacidad" value="Sí" required> Sí</label>
+          <label class="insc-radio-option"><input type="radio" name="discapacidad" value="No" required> No</label>
+        </div>
+      </div>
+
+      <div class="insc-conditional insc-single" id="campoDiscapacidadCual">
+        <div class="insc-field"><label>¿Cuál?</label><input type="text" name="discapacidad_cual"></div>
+      </div>
+
+      <p class="insc-section-title">Documentos</p>
+      <div class="insc-grid">
+        <div class="insc-field insc-full">
+          <label>Cédula de Identidad</label>
+          <input type="file" name="archivo_cedula" accept=".pdf,.jpg,.jpeg,.png" required>
+        </div>
+        <div class="insc-field insc-full">
+          <label>Título Académico (TSU o Universitario)</label>
+          <input type="file" name="archivo_titulo" accept=".pdf,.jpg,.jpeg,.png" required>
+        </div>
+        <div class="insc-field insc-full">
+          <label>Foto reciente tipo carnet</label>
+          <input type="file" name="archivo_foto" accept=".jpg,.jpeg,.png" required>
+        </div>
+        <div class="insc-field insc-full">
+          <label>Notas Certificadas o Constancia</label>
+          <input type="file" name="archivo_notas" accept=".pdf,.jpg,.jpeg,.png">
+          <p class="insc-note">Obligatorio solo si eres estudiante.</p>
+        </div>
+        <div class="insc-field insc-full">
+          <label>Soporte de Pago</label>
+          <input type="file" name="archivo_soporte_pago" accept=".pdf,.jpg,.jpeg,.png" required>
+          <p class="insc-note">Comprobante de tu pago por Zelle, Binance o transferencia.</p>
+        </div>
+      </div>
+
+      <div class="insc-checkbox-row">
+        <input type="checkbox" name="acepta_condiciones" id="inscAcepta" required>
+        <label for="inscAcepta">Acepto las <a href="#" target="_blank" rel="noopener">Condiciones de Servicio</a></label>
+      </div>
+
+      <div class="insc-validation" id="inscValidation">
+        <p>Revisa los siguientes campos antes de enviar:</p>
+        <ul id="inscValidationList"></ul>
+      </div>
+
+      <button type="submit" class="insc-submit" id="inscSubmitBtn">Enviar</button>
+      <p class="insc-error" id="inscError" hidden>No se pudo completar el envío. Intenta de nuevo en unos segundos.</p>
+    </form>
+  </div>
+
+  <div class="insc-confirm" id="inscConfirmState">
+    <div class="insc-icon">✓</div>
+    <h3 style="color:#00304F;font-family:Saira,sans-serif;">¡Inscripción recibida!</h3>
+    <p style="color:#5B6B78;font-size:14px;margin-top:8px;">Hemos recibido tus datos y documentos correctamente. Te contactaremos pronto.</p>
+  </div>
+
+</div>
+
+<div class="insc-info-wrap">
+  <h4 class="insc-info-title">Inversión y Modalidades de Pago</h4>
+  <p class="insc-info-lede">Aprovecha los precios preferenciales de <strong>Preventa Oficial (10% de descuento)</strong> por tiempo limitado para la primera cohorte. Cupos estrictamente limitados a 25 plazas.</p>
+
+  <div class="insc-price-grid">
+    <div class="insc-price-card">
+      <span class="insc-price-badge">PREVENTA · 10% OFF</span>
+      <p class="insc-price-country">VENEZUELA</p>
+      <p class="insc-price-label">Participante Nacional</p>
+      <p class="insc-price-amount">$810 <span class="insc-price-old">$900</span><span class="insc-price-unit">Pago Único</span></p>
+      <div class="insc-price-financing"><strong>Opción de Financiamiento:</strong> 4 cuotas mensuales de $250 ($1.000 total).</div>
+      <hr class="insc-price-sep">
+      <p class="insc-price-sub"><strong>Depósito o Transferencia en Bs (Tasa Oficial BCV):</strong></p>
+      <ul class="insc-price-list">
+        <li>Banco: <strong>Banco Nacional de Crédito (BNC)</strong></li>
+        <li>Titular: <strong>Facultad de Ingeniería – Universidad del Zulia</strong></li>
+        <li>RIF: <strong>G-200088060</strong></li>
+        <li>Cuenta Corriente: <strong>0191-0303-03-21000-58554</strong></li>
+      </ul>
+    </div>
+    <div class="insc-price-card">
+      <span class="insc-price-badge">PREVENTA · 10% OFF</span>
+      <p class="insc-price-country">EXTERIOR</p>
+      <p class="insc-price-label">Participante Internacional</p>
+      <p class="insc-price-amount">$1.125 <span class="insc-price-old">$1.250</span><span class="insc-price-unit">Pago Único</span></p>
+      <div class="insc-price-financing"><strong>Opción de Financiamiento:</strong> 4 cuotas mensuales de $350 ($1.400 total).</div>
+      <hr class="insc-price-sep">
+      <p class="insc-price-sub"><strong>Canales Internacionales Habilitados:</strong></p>
+      <ul class="insc-price-list">
+        <li>Zelle: <strong>elizabethfabiani28@gmail.com</strong> (Elizabeth Fabiani)</li>
+        <li>Binance Pay: <strong>hericj@gmail.com</strong> (Heric Guedez)</li>
+        <li>Emisión de comprobante institucional directo de la Facultad de Ingeniería.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="insc-ve-note">
+    <div class="insc-ve-icon">🇻🇪❤️</div>
+    <div>
+      <p class="insc-ve-title">Sabemos lo que representa estar lejos de casa.</p>
+      <p class="insc-ve-text">Por eso, como apoyo a la comunidad venezolana en el exterior, te mantenemos el mismo precio nacional que en Venezuela, pagando en Zelle o Binance.</p>
+    </div>
+  </div>
+
+  <p class="insc-contact-note">¿Dudas o comentarios? Comunícate al <a href="tel:+584149613546">+58 414-9613546</a></p>
+</div>
+
+<script>
+(function(){
+  // ===== Países + código telefónico, en español, Venezuela primero luego alfabético =====
+  var INSC_PAISES_COD = [
+    ["Venezuela","58"],
+    ["Afganistán","93"],["Albania","355"],["Alemania","49"],["Andorra","376"],["Angola","244"],
+    ["Antigua y Barbuda","1268"],["Arabia Saudita","966"],["Argelia","213"],["Argentina","54"],["Armenia","374"],
+    ["Australia","61"],["Austria","43"],["Azerbaiyán","994"],["Bahamas","1242"],["Bangladés","880"],
+    ["Barbados","1246"],["Baréin","973"],["Bélgica","32"],["Belice","501"],["Benín","229"],
+    ["Bielorrusia","375"],["Birmania","95"],["Bolivia","591"],["Bosnia y Herzegovina","387"],["Botsuana","267"],
+    ["Brasil","55"],["Brunéi","673"],["Bulgaria","359"],["Burkina Faso","226"],["Burundi","257"],
+    ["Bután","975"],["Cabo Verde","238"],["Camboya","855"],["Camerún","237"],["Canadá","1"],
+    ["Catar","974"],["Chad","235"],["Chile","56"],["China","86"],["Chipre","357"],
+    ["Colombia","57"],["Comoras","269"],["Corea del Norte","850"],["Corea del Sur","82"],["Costa de Marfil","225"],
+    ["Costa Rica","506"],["Croacia","385"],["Cuba","53"],["Dinamarca","45"],["Dominica","1767"],
+    ["Ecuador","593"],["Egipto","20"],["El Salvador","503"],["Emiratos Árabes Unidos","971"],["Eritrea","291"],
+    ["Eslovaquia","421"],["Eslovenia","386"],["España","34"],["Estados Unidos","1"],["Estonia","372"],
+    ["Etiopía","251"],["Filipinas","63"],["Finlandia","358"],["Fiyi","679"],["Francia","33"],
+    ["Gabón","241"],["Gambia","220"],["Georgia","995"],["Ghana","233"],["Granada","1473"],
+    ["Grecia","30"],["Guatemala","502"],["Guinea","224"],["Guinea-Bisáu","245"],["Guinea Ecuatorial","240"],
+    ["Guyana","592"],["Haití","509"],["Honduras","504"],["Hungría","36"],["India","91"],
+    ["Indonesia","62"],["Irak","964"],["Irán","98"],["Irlanda","353"],["Islandia","354"],
+    ["Islas Marshall","692"],["Islas Salomón","677"],["Israel","972"],["Italia","39"],["Jamaica","1876"],
+    ["Japón","81"],["Jordania","962"],["Kazajistán","7"],["Kenia","254"],["Kirguistán","996"],
+    ["Kiribati","686"],["Kuwait","965"],["Laos","856"],["Lesoto","266"],["Letonia","371"],
+    ["Líbano","961"],["Liberia","231"],["Libia","218"],["Liechtenstein","423"],["Lituania","370"],
+    ["Luxemburgo","352"],["Macedonia del Norte","389"],["Madagascar","261"],["Malasia","60"],["Malaui","265"],
+    ["Maldivas","960"],["Malí","223"],["Malta","356"],["Marruecos","212"],["Mauricio","230"],
+    ["Mauritania","222"],["México","52"],["Micronesia","691"],["Moldavia","373"],["Mónaco","377"],
+    ["Mongolia","976"],["Montenegro","382"],["Mozambique","258"],["Namibia","264"],["Nauru","674"],
+    ["Nepal","977"],["Nicaragua","505"],["Níger","227"],["Nigeria","234"],["Noruega","47"],
+    ["Nueva Zelanda","64"],["Omán","968"],["Países Bajos","31"],["Pakistán","92"],["Palaos","680"],
+    ["Panamá","507"],["Papúa Nueva Guinea","675"],["Paraguay","595"],["Perú","51"],["Polonia","48"],
+    ["Portugal","351"],["Reino Unido","44"],["República Centroafricana","236"],["República Checa","420"],["República del Congo","242"],
+    ["República Democrática del Congo","243"],["República Dominicana","1809"],["Ruanda","250"],["Rumania","40"],["Rusia","7"],
+    ["Samoa","685"],["San Cristóbal y Nieves","1869"],["San Marino","378"],["San Vicente y las Granadinas","1784"],["Santa Lucía","1758"],
+    ["Santo Tomé y Príncipe","239"],["Senegal","221"],["Serbia","381"],["Seychelles","248"],["Sierra Leona","232"],
+    ["Singapur","65"],["Siria","963"],["Somalia","252"],["Sri Lanka","94"],["Suazilandia","268"],
+    ["Sudáfrica","27"],["Sudán","249"],["Sudán del Sur","211"],["Suecia","46"],["Suiza","41"],
+    ["Surinam","597"],["Tailandia","66"],["Tanzania","255"],["Tayikistán","992"],["Timor Oriental","670"],
+    ["Togo","228"],["Tonga","676"],["Trinidad y Tobago","1868"],["Túnez","216"],["Turkmenistán","993"],
+    ["Turquía","90"],["Tuvalu","688"],["Ucrania","380"],["Uganda","256"],["Uruguay","598"],
+    ["Uzbekistán","998"],["Vanuatu","678"],["Vaticano","379"],["Vietnam","84"],
+    ["Yemen","967"],["Yibuti","253"],["Zambia","260"],["Zimbabue","263"]
+  ];
+  var INSC_PAISES = INSC_PAISES_COD.map(function(p){ return p[0]; });
+
+  document.querySelectorAll('.insc-country').forEach(function(sel){
+    var placeholder = document.createElement('option');
+    placeholder.value = ''; placeholder.disabled = true; placeholder.selected = true;
+    placeholder.textContent = 'Selecciona un país';
+    sel.appendChild(placeholder);
+    INSC_PAISES.forEach(function(pais){
+      var opt = document.createElement('option');
+      opt.value = pais; opt.textContent = pais;
+      sel.appendChild(opt);
+    });
+  });
+
+  document.querySelectorAll('.insc-phone-code').forEach(function(sel){
+    INSC_PAISES_COD.forEach(function(p){
+      var opt = document.createElement('option');
+      opt.value = p[1]; opt.textContent = p[0] + ' (+' + p[1] + ')';
+      if (p[0] === 'Venezuela') opt.selected = true;
+      sel.appendChild(opt);
+    });
+  });
+
+  var form = document.getElementById('inscForm');
+
+  // ===== Lógica condicional: Estudiante / Profesional =====
+  var estudianteBlock = document.getElementById('camposEstudiante');
+  var profesionalBlock = document.getElementById('camposProfesional');
+  document.querySelectorAll('input[name="estatus"]').forEach(function(radio){
+    radio.addEventListener('change', function(){
+      var esEstudiante = this.value === 'Estudiante';
+      estudianteBlock.classList.toggle('insc-visible', esEstudiante);
+      profesionalBlock.classList.toggle('insc-visible', !esEstudiante);
+      document.querySelector('[name="carrera"]').required = esEstudiante;
+      document.querySelector('[name="semestre_anio"]').required = esEstudiante;
+      document.querySelector('[name="profesion"]').required = !esEstudiante;
+      document.querySelector('[name="archivo_notas"]').required = esEstudiante;
+    });
+  });
+
+  // ===== Lógica condicional: Discapacidad =====
+  var discapacidadBlock = document.getElementById('campoDiscapacidadCual');
+  document.querySelectorAll('input[name="discapacidad"]').forEach(function(radio){
+    radio.addEventListener('change', function(){
+      var esSi = this.value === 'Sí';
+      discapacidadBlock.classList.toggle('insc-visible', esSi);
+      var cualInput = document.querySelector('[name="discapacidad_cual"]');
+      cualInput.required = esSi;
+      if (!esSi) cualInput.value = '';
+    });
+  });
+
+  // ===== País de origen == País de residencia: oculta el documento duplicado =====
+  var paisOrigenSel = document.querySelector('[name="pais_origen"]');
+  var paisResidenciaSel = document.querySelector('[name="pais_residencia"]');
+  var campoDocResidencia = document.getElementById('campoDocResidencia');
+  var docResidenciaInput = document.querySelector('[name="doc_residencia"]');
+  function mismoPais(){
+    return !!(paisOrigenSel.value && paisResidenciaSel.value && paisOrigenSel.value === paisResidenciaSel.value);
+  }
+  function syncDocResidencia(){
+    var igual = mismoPais();
+    campoDocResidencia.style.display = igual ? 'none' : '';
+    docResidenciaInput.required = !igual;
+  }
+  paisOrigenSel.addEventListener('change', syncDocResidencia);
+  paisResidenciaSel.addEventListener('change', syncDocResidencia);
+
+  // ===== Validación (el <form novalidate> desactiva la nativa del navegador) =====
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var validationBox = document.getElementById('inscValidation');
+  var validationList = document.getElementById('inscValidationList');
+
+  function validateForm(fd){
+    var errors = [];
+    function req(name, label){
+      var v = (fd.get(name) || '').toString().trim();
+      if (!v) errors.push(label);
+    }
+
+    req('nombres', 'Nombres');
+    req('apellidos', 'Apellidos');
+    req('genero', 'Género');
+    req('fecha_nacimiento', 'Fecha de nacimiento');
+
+    var email = (fd.get('email') || '').toString().trim();
+    if (!email) errors.push('Correo electrónico');
+    else if (!EMAIL_RE.test(email)) errors.push('Correo electrónico (formato inválido)');
+
+    var phoneDigits = (fd.get('telefono') || '').toString().replace(/\D/g, '');
+    if (!fd.get('telefono_code') || !phoneDigits) errors.push('Teléfono');
+
+    req('pais_origen', 'País de origen');
+    req('pais_residencia', 'País de residencia');
+    req('doc_origen', 'Documento de identidad (origen)');
+    if (!mismoPais()) req('doc_residencia', 'Documento de identidad (residencia)');
+
+    var estatus = fd.get('estatus');
+    if (!estatus) errors.push('¿Eres estudiante o profesional?');
+    if (estatus === 'Estudiante') {
+      req('carrera', 'Carrera');
+      req('semestre_anio', 'Semestre / Año');
+    } else if (estatus === 'Profesional') {
+      req('profesion', 'Profesión');
+    }
+
+    req('ocupacion_actual', 'Ocupación actual');
+    req('horario_elegido', 'Horario elegido');
+
+    var discapacidad = fd.get('discapacidad');
+    if (!discapacidad) errors.push('¿Presentas alguna discapacidad?');
+    if (discapacidad === 'Sí') req('discapacidad_cual', '¿Cuál discapacidad?');
+
+    if (!form.querySelector('[name="archivo_cedula"]').files[0]) errors.push('Cédula de Identidad (archivo)');
+    if (!form.querySelector('[name="archivo_titulo"]').files[0]) errors.push('Título Académico (archivo)');
+    if (!form.querySelector('[name="archivo_foto"]').files[0]) errors.push('Foto reciente tipo carnet (archivo)');
+    if (!form.querySelector('[name="archivo_soporte_pago"]').files[0]) errors.push('Soporte de Pago (archivo)');
+    if (estatus === 'Estudiante' && !form.querySelector('[name="archivo_notas"]').files[0]) {
+      errors.push('Notas Certificadas o Constancia (archivo, obligatorio para estudiantes)');
+    }
+
+    if (!fd.get('acepta_condiciones')) errors.push('Aceptar las Condiciones de Servicio');
+
+    return errors;
+  }
+
+  // ===== Envío del formulario =====
+  var INSC_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwNg6QFc9_4lRv69Czm0B9pdx3YSP--bQ-LNxDTSq_qZSKeALpr5aPRXU1LQHb3YRZB/exec';
+
+  function fileToBase64(file){
+    return new Promise(function(resolve, reject){
+      if (!file) { resolve(null); return; }
+      var reader = new FileReader();
+      reader.onload = function(){
+        var result = reader.result; // "data:<mime>;base64,<data>"
+        var base64 = result.split(',')[1];
+        resolve({ base64: base64, filename: file.name, mimeType: file.type || 'application/octet-stream' });
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  var errorEl = document.getElementById('inscError');
+  var btn = document.getElementById('inscSubmitBtn');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    errorEl.hidden = true;
+    validationBox.classList.remove('insc-visible');
+
+    var fd = new FormData(form);
+    var errors = validateForm(fd);
+    if (errors.length) {
+      validationList.innerHTML = errors.map(function(x){ return '<li>' + x + '</li>'; }).join('');
+      validationBox.classList.add('insc-visible');
+      validationBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      return;
+    }
+
+    var igual = mismoPais();
+    var data = {
+      tipo: 'inscripcion',
+      nombres: fd.get('nombres'),
+      apellidos: fd.get('apellidos'),
+      genero: fd.get('genero'),
+      fecha_nacimiento: fd.get('fecha_nacimiento'),
+      email: fd.get('email'),
+      telefono: fd.get('telefono_code') + ' ' + (fd.get('telefono') || '').toString().replace(/\D/g, ''),
+      pais_origen: fd.get('pais_origen'),
+      pais_residencia: fd.get('pais_residencia'),
+      doc_origen: fd.get('doc_origen'),
+      doc_residencia: igual ? fd.get('doc_origen') : fd.get('doc_residencia'),
+      estatus: fd.get('estatus'),
+      carrera: fd.get('carrera') || '',
+      semestre_anio: fd.get('semestre_anio') || '',
+      profesion: fd.get('profesion') || '',
+      ocupacion_actual: fd.get('ocupacion_actual'),
+      horario_elegido: fd.get('horario_elegido'),
+      discapacidad: fd.get('discapacidad'),
+      discapacidad_cual: fd.get('discapacidad_cual') || '',
+      acepta_condiciones: fd.get('acepta_condiciones') ? 'Sí' : 'No'
+    };
+
+    var fileCedula = form.querySelector('[name="archivo_cedula"]').files[0];
+    var fileTitulo = form.querySelector('[name="archivo_titulo"]').files[0];
+    var fileFoto   = form.querySelector('[name="archivo_foto"]').files[0];
+    var fileNotas  = form.querySelector('[name="archivo_notas"]').files[0];
+    var filePago   = form.querySelector('[name="archivo_soporte_pago"]').files[0];
+
+    btn.disabled = true;
+    var originalText = btn.textContent;
+    btn.textContent = 'Enviando...';
+
+    Promise.all([fileToBase64(fileCedula), fileToBase64(fileTitulo), fileToBase64(fileNotas), fileToBase64(filePago), fileToBase64(fileFoto)])
+      .then(function(files){
+        data.archivo_cedula = files[0];
+        data.archivo_titulo = files[1];
+        data.archivo_notas = files[2];
+        data.archivo_soporte_pago = files[3];
+        data.archivo_foto = files[4];
+
+        return fetch(INSC_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(data)
+        });
+      })
+      .then(function(res){ return res.json(); })
+      .then(function(result){
+        if (!result.ok) throw new Error(result.error || 'Error desconocido');
+        document.getElementById('inscFormState').style.display = 'none';
+        document.getElementById('inscConfirmState').classList.add('insc-visible');
+      })
+      .catch(function(err){
+        console.warn('Inscripción: no se pudo enviar', err);
+        errorEl.hidden = false;
+      })
+      .finally(function(){
+        btn.disabled = false;
+        btn.textContent = originalText;
+      });
+  });
+})();
+</script>
+</main>
+<footer class="site-footer">© Facultad de Ingeniería · Universidad del Zulia</footer>
+</body>
+</html>
